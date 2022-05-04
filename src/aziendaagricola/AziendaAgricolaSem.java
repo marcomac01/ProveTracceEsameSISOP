@@ -50,10 +50,16 @@ public class AziendaAgricolaSem {
         }
     }
 
-    public static void main(String[] args) {
-        for (int i = 0; i < 5; i++) {
-            new Cliente().start();
+    public static void main(String[] args) throws InterruptedException {
+        Cliente[] clienti = new Cliente[5];
+        for (int i = 0; i < clienti.length; i++) {
+            clienti[i] = new Cliente();
+            clienti[i].start();
         }
+        for (int i = 0; i < clienti.length; i++) {
+            clienti[i].join();
+        }
+        System.out.println("il denaro totale a fine giornata è " + monetaAcquisita);
     }
 
 }
