@@ -16,7 +16,7 @@ public class AziendaAgricolaSem {
     private static Magazziniere magazziniere= new Magazziniere();
 
     private static class Cliente extends Thread {
-        private int decisioneSacchi = random.nextInt(9) + 1;
+        private int decisioneSacchi = random.nextInt(1,10);
 
         @Override
         public void run() {

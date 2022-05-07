@@ -27,7 +27,7 @@ public class BarModSem {
                 filaCassa++;
                 semFilaCassa.release();
                 semCassa.acquire();
-                TimeUnit.SECONDS.sleep(r.nextInt(10-5)+5);
+                TimeUnit.SECONDS.sleep(r.nextInt(5,10));
                 semFilaCassa.acquire();
                 filaCassa--;
                 semFilaCassa.release();
@@ -42,7 +42,7 @@ public class BarModSem {
                 filaBancone++;
                 semFilaBancone.release();
                 semBancone.acquire();
-                TimeUnit.SECONDS.sleep(r.nextInt(40-20)+20);
+                TimeUnit.SECONDS.sleep(r.nextInt(20,40));
                 semFilaBancone.acquire();
                 filaBancone--;
                 semFilaBancone.release();

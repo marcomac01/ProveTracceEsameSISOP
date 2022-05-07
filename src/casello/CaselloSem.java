@@ -15,7 +15,7 @@ public class CaselloSem {
     private static Veicolo[] veicoli = new Veicolo[10];
 
     private static class Veicolo extends Thread {
-        private final int kmPercorsi = random.nextInt(100-50) + 50;
+        private final int kmPercorsi = random.nextInt(50,100);
 
         @Override
         public void run() {
@@ -24,7 +24,7 @@ public class CaselloSem {
                 int portaUsata = random.nextInt(numPorte);
                 porte[portaUsata].acquire();
                 sIncasso.acquire();
-                TimeUnit.SECONDS.sleep(random.nextInt(6-3)+3);
+                TimeUnit.SECONDS.sleep(random.nextInt(3,6));
                 incasso += kmPercorsi*T;
                 System.out.println("il veicolo ha percorso "+kmPercorsi + " e pagato " + kmPercorsi*T+"; incasso = "+incasso);
                 sIncasso.release();
