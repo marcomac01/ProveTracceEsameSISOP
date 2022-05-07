@@ -1,9 +1,11 @@
 package barmod;
 
+import java.util.Random;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
 public class BarModSem {
+    private static Random r = new Random();
     private static int filaCassa = 0;
     private static int filaBancone = 0;
     private static Semaphore semFilaCassa = new Semaphore(1);
@@ -25,7 +27,7 @@ public class BarModSem {
                 filaCassa++;
                 semFilaCassa.release();
                 semCassa.acquire();
-                TimeUnit.SECONDS.sleep((10-5)+5);
+                TimeUnit.SECONDS.sleep(r.nextInt(10-5)+5);
                 semFilaCassa.acquire();
                 filaCassa--;
                 semFilaCassa.release();
@@ -40,7 +42,7 @@ public class BarModSem {
                 filaBancone++;
                 semFilaBancone.release();
                 semBancone.acquire();
-                TimeUnit.SECONDS.sleep((40-20)+20);
+                TimeUnit.SECONDS.sleep(r.nextInt(40-20)+20);
                 semFilaBancone.acquire();
                 filaBancone--;
                 semFilaBancone.release();
